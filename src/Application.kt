@@ -31,11 +31,7 @@ fun Application.mainModule() {
             realm = "ktor"
             validate { credentials ->
                 val user = verifyUser(credentials)
-                if (user!=null) {
-                    user
-                } else {
-                    null
-                }
+                user
             }
         }
     }
@@ -44,8 +40,3 @@ fun Application.mainModule() {
         root()
     }
 }
-
-
-
-
-
