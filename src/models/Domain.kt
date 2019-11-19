@@ -1,11 +1,6 @@
 package com.ktor.sample.models
 
-import io.ktor.auth.Principal
-
-
-sealed class AuthenticatedUser : Principal {
-    data class User(val name: String) : AuthenticatedUser()
-}
+data class SherpaUser(var name: String)
 
 data class Review(val reviewDate: Long)
 

@@ -22,13 +22,10 @@ fun Application.mainModule() {
     install(DefaultHeaders)
     install(CallLogging)
     install(ContentNegotiation) {
-        gson {
-
-        }
+        gson {}
     }
     install(Authentication) {
         basic {
-            realm = "ktor"
             validate { credentials ->
                 val user = verifyUser(credentials)
                 user
