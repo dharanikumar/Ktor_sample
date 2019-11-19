@@ -1,6 +1,6 @@
 package com.ktor.sample
 
-import com.ktor.sample.handlers.FeedbackHandler
+import com.ktor.sample.handlers.getFeedback
 import com.ktor.sample.models.Feedback
 import com.ktor.sample.repo.AuthUser
 import io.ktor.application.call
@@ -25,7 +25,7 @@ fun Routing.root() {
             val user = call.principal<AuthUser>()
 
             val feedbackList = user?.sherpaUser?.let {
-                FeedbackHandler.getFeedback(user.sherpaUser)
+                getFeedback(user.sherpaUser)
             }
 
             if (feedbackList != null) {
