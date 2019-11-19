@@ -17,15 +17,15 @@ fun Routing.root() {
     authenticate {
         get("/") {
             call.respondText(
-                "Welcome! ${call.principal<AuthUser>()?.sherpaUser?.name}", ContentType.Text.Plain
+                "Welcome! ${call.principal<AuthUser>()?.user?.name}", ContentType.Text.Plain
             )
         }
 
         get("/feedback") {
-            val user = call.principal<AuthUser>()
+            val authUser = call.principal<AuthUser>()
 
-            val feedbackList = user?.sherpaUser?.let {
-                getFeedback(user.sherpaUser)
+            val feedbackList = authUser?.user?.let {
+                getFeedback(it)
             }
 
             if (feedbackList != null) {
