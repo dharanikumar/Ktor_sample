@@ -28,7 +28,7 @@ fun Application.mainModule() {
         basic {
             validate { credentials ->
                 val user = verifyUser(credentials)
-                user
+                user.fold({null}, {it})
             }
         }
     }
