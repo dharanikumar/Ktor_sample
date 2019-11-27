@@ -1,7 +1,13 @@
 package com.ktor.sample.models
 
-data class User(var name: String)
 
-data class Review(val reviewDate: Long)
+data class UserName(val value: String)
+data class ReviewDate(val value: Long)
+
+data class User(val name: UserName)
+
+data class Review(val reviewDate: ReviewDate)
 
 data class Feedback(val feedbackDescription: String)
+
+data class ErrorMessage(val value: String)
